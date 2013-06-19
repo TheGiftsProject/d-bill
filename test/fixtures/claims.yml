@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  amount_cents: 1
+  tip_amount_cents: 1
+  name: MyString
+  udid: MyString
+  bill_id: 
+
+two:
+  amount_cents: 1
+  tip_amount_cents: 1
+  name: MyString
+  udid: MyString
+  bill_id: 
