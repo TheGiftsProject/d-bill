@@ -2,11 +2,11 @@
   %header{:data => {:role => :header}}
     %h1 Create Table
   .content{:data => {:role => :content}}
-    = form_tag bills_path, :method => :post do
+    = form_tag bills_path, :method => :post, :multipart => true do
       %input{:name => 'bill[total]', :type => 'text', :placeholder => '10.50'}
       .add-image
         %div{:data => {:role => :button, :theme => :a}}
           Add Image
-        %input{:name => 'bill[image]', :type => 'file', :accept => 'image/*;capture=camera'}
+        = file_field_tag 'bill[receipt]'
       %br
       %input{:type => :submit, :value => 'Create Table'}

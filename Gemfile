@@ -18,7 +18,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jquery_mobile_rails'
 
-
+gem 'carrierwave'
 gem 'paranoia'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -33,4 +33,4 @@ end
 
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]

@@ -1,6 +1,9 @@
 class Bill < ActiveRecord::Base
   has_many :claims
 
+  mount_uploader :receipt, ReceiptUploader
+
+
   before_create :generate_defaults
 
   def to_param

@@ -3,7 +3,8 @@ class BillsController < ApplicationController
   respond_to :json, :html
 
   def create
-    @bill = Bill.create(bill_params)
+    debugger
+    @bill = Bill.create!(bill_params)
     respond_with @bill
   end
 
@@ -15,7 +16,7 @@ class BillsController < ApplicationController
   private
 
   def bill_params
-    params.require(:bill).permit(:total, :image)
+    params.require(:bill).permit(:total, :receipt)
   end
 
 end
