@@ -1,0 +1,8 @@
+%div{:data => {:role => :page}, :id => "BILL#{@bill.id}"}
+  %header{:data => {:role => :header}}
+    %h1= @bill.code
+  .content{:data => {:role => :content}}
+    %ul{:data => {:role => :listview, :inset => :true}}
+      %li{:data => {:role => 'list-divider'}} All Claims
+      %li Claim #1
+    %a{:href => '#claim', :data => {:role => :button, :icon => 'flat-plus', :theme => :a, :iconshadow => :true}} Claim

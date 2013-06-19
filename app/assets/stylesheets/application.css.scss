@@ -1,1 +1,23 @@
 @import 'jquery.mobile';
+@import 'jquery.mobile.flatui';
+
+.add-image{
+  position: relative;
+  > *{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .ui-btn{
+    width: 100%;
+    z-index: 10;
+    margin: 0;
+    pointer-events: none;
+
+  }
+}
+
+.ui-icon{
+  background-image: none !important;
+}

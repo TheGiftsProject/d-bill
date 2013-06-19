@@ -2,3 +2,5 @@
   %header{:data => {:role => :header}}
     %h1 Join Table
   .content{:data => {:role => :content}}
+    = form_tag join_bills_path, :method => :post do
+      %input{:type => :number, :name => 'id', :placeholder => 'Enter the code'}
