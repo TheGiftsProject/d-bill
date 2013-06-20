@@ -3,7 +3,6 @@ class BillsController < ApplicationController
   respond_to :json, :html
 
   def create
-    debugger
     @bill = Bill.create!(bill_params)
     respond_with @bill
   end

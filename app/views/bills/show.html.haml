@@ -1,6 +1,8 @@
 %div{:data => {:role => :page}, :id => "BILL#{@bill.id}"}
   %header{:data => {:role => :header}}
     %h1= @bill.code
+    - if @bill.receipt
+      %a.ui-btn-right{:href => @bill.receipt_url, :data => {:ajax => :false, :icon => 'flat-eye', :iconpos => :notext, :theme => :b, :inline => :true, :corners => :true, :shadow => :true, :iconshadow => :true}}
   .content{:data => {:role => :content}}
     %ul{:data => {:role => :listview, :inset => :true}}
       %li{:data => {:role => 'list-divider'}} All Claims
