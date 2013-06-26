@@ -1,10 +1,20 @@
 %div{:data => {:role => :page}, :id => "BILL#{@bill.id}"}
   %header{:data => {:role => :header}}
+    %a.ui-btn-left{:href => '/', :data => {:icon => 'flat-menu', :iconpos => :notext, :theme => :b, :inline => :true, :corners => :true, :shadow => :true, :iconshadow => :true}}
     %h1= @bill.code
-    - if @bill.receipt
-      %a.ui-btn-right{:href => @bill.receipt_url, :data => {:ajax => :false, :icon => 'flat-eye', :iconpos => :notext, :theme => :b, :inline => :true, :corners => :true, :shadow => :true, :iconshadow => :true}}
+    - if @bill.receipt.present?
+      %a.ui-btn-right{:href => "#RECEIPT#{@bill.id}", :data => {:rel => :dialog, :icon => 'flat-eye', :iconpos => :notext, :theme => :b, :inline => :true, :corners => :true, :shadow => :true, :iconshadow => :true}}
   .content{:data => {:role => :content}}
     %ul{:data => {:role => :listview, :inset => :true}}
       %li{:data => {:role => 'list-divider'}} All Claims
       %li Claim #1
     %a{:href => '#claim', :data => {:role => :button, :icon => 'flat-plus', :theme => :a, :iconshadow => :true}} Claim
+  %div{:data => {:role => :'subpage-dialog'}, :id => "RECEIPT#{@bill.id}"}
+    %header{:data => {:role => :header, :theme => :c}}
+      %a.ui-btn-left{:data => {:rel => :back, :icon => 'flat-cross', :iconpos => :notext, :theme => :f, :inline => :true, :corners => :true, :shadow => :true, :iconshadow => :true}}
+      %h1 Receipt Image
+    .content#receipt_image_dialog{:data => {:role => :content}}
+      %img{:src => @bill.receipt_url}
+
+- unless request.xhr?
+  = render :template => 'application/root'
