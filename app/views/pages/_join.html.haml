@@ -4,3 +4,5 @@
   .content{:data => {:role => :content}}
     = form_tag join_bills_path, :method => :get do
       %input{:type => :number, :name => 'id', :placeholder => 'Enter the code'}
+      %input{:type => :text, :name => 'name', :placeholder => 'Enter the code'}
+      = submit_tag 'Join'

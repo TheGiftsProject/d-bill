@@ -31,3 +31,20 @@
     width: 100%;
   }
 }
+
+.content ul li.claim {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+
+  .name {
+    flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+  }
+
+  .amount, .tip {
+    flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+  }
+}

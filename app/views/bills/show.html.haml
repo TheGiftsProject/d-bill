@@ -7,8 +7,13 @@
   .content{:data => {:role => :content}}
     %ul{:data => {:role => :listview, :inset => :true}}
       %li{:data => {:role => 'list-divider'}} All Claims
-      %li Claim #1
-    %a{:href => '#claim', :data => {:role => :button, :icon => 'flat-plus', :theme => :a, :iconshadow => :true}} Claim
+      - @bill.claims.each do |claim|
+        %li.claim
+          .name= claim.name
+          .amount= claim.amount_cents
+          .tip= claim.tip_amount_cents
+
+    %a{:href => edit_bill_claim_path(@bill, @claim), :data => {:role => :button, :icon => 'flat-plus', :theme => :a, :iconshadow => :true}} Claim
   %div{:data => {:role => :'subpage-dialog'}, :id => "RECEIPT#{@bill.id}"}
     %header{:data => {:role => :header, :theme => :c}}
       %a.ui-btn-left{:data => {:rel => :back, :icon => 'flat-cross', :iconpos => :notext, :theme => :f, :inline => :true, :corners => :true, :shadow => :true, :iconshadow => :true}}

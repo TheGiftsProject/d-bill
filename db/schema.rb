@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130619145036) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20130626135045) do
 
   create_table "bills", force: true do |t|
     t.string   "receipt"
@@ -26,8 +23,8 @@ ActiveRecord::Schema.define(version: 20130619145036) do
   end
 
   create_table "claims", force: true do |t|
-    t.integer  "amount_cents"
-    t.integer  "tip_amount_cents"
+    t.integer  "amount_cents",     default: 0
+    t.integer  "tip_amount_cents", default: 0
     t.string   "name"
     t.string   "udid"
     t.integer  "bill_id"

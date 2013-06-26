@@ -4,6 +4,8 @@ default: &default
   database: dbill
   host: localhost
   pool: 5
+  username: asafg
+  password: hello
 
 development:
   <<: *default
