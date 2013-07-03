@@ -18,6 +18,14 @@ class Bill < ActiveRecord::Base
     total_cents / 100
   end
 
+  def total_claimed
+    claims.map(&:amount).reduce(:+)
+  end
+
+  def total_tip_claimed
+    claims.map(&:tip_amount).reduce(:+)
+  end
+
   private
 
   def generate_defaults

@@ -8,7 +8,7 @@ class ClaimsController < ApplicationController
 
   def update
     claim = Claim.find(params[:id])
-    claim.update_attributes(params.require(:claim).permit(:amount_cents, :tip_amount_cents))
+    claim.update_attributes(params.require(:claim).permit(:amount, :tip_amount))
     redirect_to bill_path(claim.bill, name: claim.name)
   end
 end

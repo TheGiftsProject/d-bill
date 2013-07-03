@@ -32,19 +32,16 @@
   }
 }
 
-.content ul li.claim {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  -webkit-flex-direction: row;
+.content ul li {
+  overflow: hidden;
 
   .name {
-    flex: 1 1 auto;
-    -webkit-flex: 1 1 auto;
+    float: left;
   }
 
   .amount, .tip {
-    flex: 1 1 auto;
-    -webkit-flex: 1 1 auto;
+    float: right;
+    width: 80px;
+    text-align: right;
   }
 }

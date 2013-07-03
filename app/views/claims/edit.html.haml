@@ -6,10 +6,10 @@
   .content{:data => {:role => :content}}
     = form_tag bill_claim_path(@claim.bill, @claim), :method => :put do
       %span Amount
-      %input{:name => 'claim[amount_cents]', :type => 'number', :value => @claim.amount_cents }
+      %input{:name => 'claim[amount]', :value => @claim.amount }
       %br
       %span Tip
-      %input{:name => 'claim[tip_amount_cents]', :type => 'number', :value => @claim.tip_amount_cents }
+      %input{:name => 'claim[tip_amount]', :value => @claim.tip_amount }
       %br
       = submit_tag 'Save'
 

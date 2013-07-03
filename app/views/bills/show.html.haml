@@ -6,12 +6,27 @@
       %a.ui-btn-right{:href => "#RECEIPT#{@bill.id}", :data => {:rel => :dialog, :icon => 'flat-eye', :iconpos => :notext, :theme => :b, :inline => :true, :corners => :true, :shadow => :true, :iconshadow => :true}}
   .content{:data => {:role => :content}}
     %ul{:data => {:role => :listview, :inset => :true}}
-      %li{:data => {:role => 'list-divider'}} All Claims
+      %li{:data => {:role => 'list-divider'}}
+        .name All Claims
+        .tip Tip
+        .amount Amount
       - @bill.claims.each do |claim|
-        %li.claim
+        %li
           .name= claim.name
-          .amount= claim.amount_cents
-          .tip= claim.tip_amount_cents
+          .tip= claim.tip_amount
+          .amount= claim.amount
+      %li{:data => {:role => 'list-divider'}}
+        .name Total
+        .tip= @bill.total_tip_claimed
+        .amount= @bill.total_claimed
+      %li{:data => {:role => 'list-divider', :theme => :d}}
+        .name Missing
+        .tip &nbsp;
+        .amount= @bill.total - @bill.total_claimed
+      %li{:data => {:role => 'list-divider'}}
+        .name Target
+        .tip #{@bill.total_tip_claimed.to_f / @bill.total * 100}%
+        .amount= @bill.total
 
     %a{:href => edit_bill_claim_path(@bill, @claim), :data => {:role => :button, :icon => 'flat-plus', :theme => :a, :iconshadow => :true}} Claim
   %div{:data => {:role => :'subpage-dialog'}, :id => "RECEIPT#{@bill.id}"}
