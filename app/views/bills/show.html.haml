@@ -25,7 +25,7 @@
         .amount= @bill.total - @bill.total_claimed
       %li{:data => {:role => 'list-divider'}}
         .name Target
-        .tip #{@bill.total_tip_claimed.to_f / @bill.total * 100}%
+        .tip #{"%.2f" % (@bill.total_tip_claimed.to_f / @bill.total * 100)}%
         .amount= @bill.total
 
     %a{:href => edit_bill_claim_path(@bill, @claim), :data => {:role => :button, :icon => 'flat-plus', :theme => :a, :iconshadow => :true}} Claim
